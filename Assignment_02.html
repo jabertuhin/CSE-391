@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang = "en">
+    <meta charset="utf-8">
+    <head>        
+        <style>
+            .center1 {
+                margin: auto;
+                width: 60%;
+                border: 3px solid #73AD21;                
+                padding: 10px;
+            }
+            .center2 {
+                margin: auto;
+                width: 60%;
+                border: 3px solid #73AD21;                
+                padding: 10px;
+            }
+            .button {
+                background-color: #4CAF50; /* Green */
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+            .box{                
+                width: 600px;
+                height: 200px;
+                border: 3px solid;
+            }
+            .button2 {background-color: #008CBA;} /* Blue */
+            .button3 {background-color: #f44336;} /* Red */ 
+            .button4 {background-color: #e7e7e7; color: black;} /* Gray */
+        </style>
+        <title>Where is where</title>
+    </head>
+    <body>
+        <h3>Quote Box</h3>
+        <div class = "center1" id = "demo">
+            <script>
+                var quotes = [
+                            'I love you the more in that I believe you had liked me for my own sake and for nothing else.',
+                            'But man is not made for defeat. A man can be destroyed but not defeated.',
+                             'When you reach the end of your rope, tie a knot in it and hang on.',
+                             'There is nothing permanent except change.',              
+                             'Let us sacrifice our today so that our children can have a better tomorrow.',
+                             'Do not mind anything that anyone tells you about anyone else. Judge everyone and everything for yourself.'
+                ]                    
+                var rand = Math.floor(Math.random()*(quotes.length));
+                document.write(quotes[rand]);                                
+            </script>
+            <br/>                                                           
+        </div>
+        <div class = "center2">
+            <script>
+                function myFunction(c){
+                    document.getElementById("demo").style.backgroundColor = c;                    
+                }
+            </script>
+            <button class="button" onclick = myFunction("#4CAF50")>Green</button>
+            <button class="button button2" onclick = myFunction("#008CBA")>Blue</button>
+            <button class="button button3" onclick = myFunction("#f44336")>Red</button>
+            <button class="button button4" onclick = myFunction("#e7e7e7")>Gray</button> 
+        </div>
+        <div>
+            <h3>Hero Convertor</h3>
+        <script>
+            function convert() {
+                    var input = document.getElementById("input");
+                    value = parseInt(input.value);
+
+                    var conversion = document.getElementById("convert");
+                    if (conversion.value == "kgtopounds") {
+                        value *= 2.20462262;
+                    } else {
+                        value *= 0.45359237;
+                    }
+
+                    var answer = document.getElementById("answer");
+                    answer.innerHTML = value;
+           }
+        </script>
+        <fieldset>
+			Convert <input id="input" type="text"/>
+			<select id="convert">
+				<option value="kgtopounds">kg to lb</option>
+				<option value="poundstokg">lb to kg</option>
+			</select>
+			<button onclick="convert();">Calculate</button>
+			<span id="answer"></span>
+		</fieldset>
+        </div>
+        <div>
+            <h3>Series</h3>
+            <script>
+                 function calculate() {
+                        var values = document.getElementById('series').value.split(/,/g);
+                        var sum = values.reduce(function(a, b) { return parseInt(a) + parseInt(b); });
+                        document.querySelector('#max').innerHTML = values.max();
+                        document.querySelector('#min').innerHTML = values.min();
+                        document.querySelector('#sum').innerHTML = sum;
+                        document.querySelector('#avg').innerHTML = sum / values.length;
+                        document.querySelector('#reverse').innerHTML = values.reverse().join(',');
+                }
+
+                Array.prototype.max = function() {
+                  return Math.max.apply(null, this);
+                };
+
+                Array.prototype.min = function() {
+                  return Math.min.apply(null, this);
+                };
+            </script>                                    
+                <table width="50%" border="0">
+                  <tr>
+                    <td width="13%">Input Series of Number:</td>
+                    <td width="29%"><input name="series" type="text" id="series"/></td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Max :</td>
+                    <td><div id="max"> </div></td>
+                  </tr>
+                  <tr>
+                    <td>Min :</td>
+                    <td><div id="min"> </div></td>
+                  </tr>
+                  <tr>
+                    <td>Sum  :</td>
+                    <td><div id="sum"> </div></td>
+                  </tr>
+                  <tr>
+                    <td>Average :</td>
+                    <td><div id="avg"> </div></td>
+                  </tr>
+                  <tr>
+                    <td>Reverse Order :</td>
+                    <td><div id="reverse"> </div></td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td></td>
+                  </tr>
+                </table>
+                <button onclick="calculate();">calculate</button>                     
+        </div>
+        
+        <div>
+            <h3>Magic!</h3>
+            <script type= "text/javascript">                
+                function clearContents(element) {
+                    element.value = '';
+                }
+                function eraseText() {
+                    document.getElementById("input").reset();
+                }
+            </script>
+            <textarea class ="box" type="text" name="input" id="line" value ='' onfocus="clearContents(this);">Write here....</textarea>
+            <br/>
+            <button class="button" onlcick ="eraseText();">Clear it</button>
+        </div>
+    </body>
+</html>
