@@ -1,0 +1,32 @@
+h2{
+    font-family: cursive;
+    text-align: center;
+    color: darkred;
+}
+h3{    
+    color: #929a35;
+}
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;    
+}
+body{    
+    background: url("abstract.jpg");
+    background-size: 80%;
+    background-attachment: fixed;    
+}
+p{
+    color: #abd08c;
+    text-align: center;
+}
+ul{
+    list-style-type: circle;
+    color: cornsilk;    
+}
+a,li{
+    color: darkseagreen;
+}
+span{
+    color: chartreuse;
+}
