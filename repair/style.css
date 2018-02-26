@@ -1,0 +1,20 @@
+button{
+  margin:auto;
+  display:block;
+}
+button{
+  padding:16px 32px;
+  font-family:helvetica;
+  font-size:16px;
+  font-weight:100;
+  color:#fff;
+  background: #587286;
+  border:0;
+  font-weight:100;
+}
+button:hover{
+  background: #3B5C76;
+}
+.wrapper {
+    text-align: center;
+}
