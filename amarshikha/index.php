@@ -24,6 +24,36 @@
                 echo $row[0];
             ?>
         </p>
+        <h3 id = "event">Event News:</h3>
+        <p>
+            <?php
+                $sql = "select description from common_info where code = 'home'";
+                $home_det = mysqli_query($conn,$sql);
+                //$row=mysqli_fetch_array($home_det,MYSQLI_ASSOC);
+                $row = mysqli_fetch_array($home_det,MYSQLI_NUM);
+                echo $row[0];
+            ?>
+        </p>
+        <h3 id = "contact">Contact:</h3>
+        <p>
+            <?php
+                $sql = "select description from common_info where code = 'contact'";
+                $home_det = mysqli_query($conn,$sql);
+                //$row=mysqli_fetch_array($home_det,MYSQLI_ASSOC);
+                $row = mysqli_fetch_array($home_det,MYSQLI_NUM);
+                echo $row[0];
+            ?>
+        </p>
+        <h3 id = "about">About:</h3>
+        <p>
+            <?php
+                $sql = "select description from common_info where code = 'home'";
+                $home_det = mysqli_query($conn,$sql);
+                //$row=mysqli_fetch_array($home_det,MYSQLI_ASSOC);
+                $row = mysqli_fetch_array($home_det,MYSQLI_NUM);
+                echo $row[0];
+            ?>
+        </p>        
     </div>
     <?php 
         mysqli_close();
