@@ -19,23 +19,21 @@
             if($_SESSION['admin'] == 1) require 'NavigateBarAdmin.php';
             else require 'NavigateBarCont.php';
         }
-    ?>    
+    ?>  
+    
     <div style="margin-left:25%;padding:1px 16px;height:1000px;">
-        <h2>Tutorials for:</h2>
-        <form action = 'subject.php' method="get">
-            <?php
-                $sql = "select *from class";
-                $result = mysqli_query($conn,$sql);                                
-            
-                while($arr = mysqli_fetch_array($result,MYSQLI_NUM)){                    
-                    echo "<input type='radio' name='cls' value=\"{$arr[0]}\">{$arr[1]}<br>";
-                    //echo $arr['code']."--".$arr['class_name']."<br/>";
-                }                
-            ?>
-            <input type= submit name="submit"/>
-        </form>        
+        <?php
+            if(!isset($_GET['sub'])){
+                header("location: chapter.php");
+            }else{
+                $_SESSION['chap'] = $_GET['chap'];
+        ?>
+        <h2>Tutorial</h2>
+        
     </div>
     <?php 
+        }
+        session_destroy();
         mysqli_close($conn);
     ?>
 </body>

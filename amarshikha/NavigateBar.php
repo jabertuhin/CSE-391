@@ -1,9 +1,11 @@
 <ul>
   <li><a href="index.php">Home</a></li>
-  <li><a href="#event">Event News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
+  <li><a href="index.php#event">Event News</a></li>
+  <li><a href="index.php#contact">Contact</a></li>
+  <li><a href="index.php#about">About</a></li>
   <li><a href="class.php">Tutorial</a></li>
+  <li><a href="login.php">Log In</a></li>
+  <li><a href="signup.php">Register</a></li>
 </ul>
 <!--
 <div style="margin-left:25%;padding:1px 16px;height:1000px;">
