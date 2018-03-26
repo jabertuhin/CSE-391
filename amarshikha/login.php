@@ -19,8 +19,7 @@
             $sql = "select * from account_info where mail_id = '$mail' and password = '$pass' ";
             $result = mysqli_query($conn,$sql);
             $row = mysqli_num_rows($result);
-            
-            echo "<h3>{$row}</h3>";
+                        
             
             if($row>0){
                 session_start();

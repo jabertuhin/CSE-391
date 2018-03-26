@@ -36,9 +36,14 @@
                 }
                 $date = date("Y-m-d");
                 $approve = 0;
-                if($_SESSION['admin'] == 1) $approve = 1;            
+                if($_SESSION['admin'] == 1){
+                    $approve = 1;
+                    $sql_con = "update account_info set contribution = contribution + 1 where mail_id = '{$_SESSION['mail']}' ";
+                                
+                    $res = mysqli_query($conn,$sql_con);
+                }
                 
-                $sql = "insert into tutorial values ('$class','$subject','$chapter','$title','$content','$username','$date','$approve')";
+                $sql = "INSERT INTO tutorial(class_code,subject_code,chapter_code,title,content,writer,date,approve) values ('$class','$subject','$chapter','$title','$content','$username','$date','$approve')";
                 if(mysqli_query($conn,$sql)){
                     echo "<div style=\"margin-left:25%;padding:1px 16px;height:1000px;\">";
                     echo "Successfully posted....";

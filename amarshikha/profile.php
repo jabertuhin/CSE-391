@@ -14,6 +14,10 @@
         session_start();
         if(!isset($_SESSION['mail']) && !isset($_SESSION['pass'])){
             include 'NavigateBar.php';
+            echo "<div style=\"margin-left:25%;padding:1px 16px;height:1000px;\">";
+            echo "Please, login <a href = 'login.php'>here</a>";
+            //echo "<p>Please, login <a href='login.php'>here</a> as an ADMIN to view this page.</p>";
+            echo "</div>";
             echo "Please, login <a href = 'login.php'>here</a>";
         }else{
             if($_SESSION['admin'] == 1) include 'NavigateBarAdmin.php';

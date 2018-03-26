@@ -3,12 +3,13 @@ $servername = "localhost";
 $username = "root";
 $password = "root";
 $dbname = "amar_shikha";
-        function valid($data){
-            $data = trim($data);
-            $data = stripslashes($data);
-            $data = htmlspecialchars($data);
-            return $data;
-        }
+
+function valid($data){
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password,$dbname);

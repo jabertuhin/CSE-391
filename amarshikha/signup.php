@@ -20,13 +20,15 @@
             $inst = valid($_POST['institute']);
             $pass = sha1(valid($_POST['pass']));
                 
-            $sql = "INSERT INTO account_info ('username', 'mail_id', 'job', 'institute', 'password') VALUES ($username,$mail,$job,$inst,$pass)";
+            $sql = "INSERT INTO account_info (username,mail_id,job,institute,password) VALUES ('$username','$mail','$job','$inst','$pass') ";
+            echo "<div style=\"margin-left:25%;padding:1px 16px;height:1000px;\">";
             if(mysqli_query($conn,$sql)){
                 echo "Your account has been created. Now you can log in.<br/>";
                 echo "<a href = \"login.php\">Log In</a>";
             }else{
                 echo "Try again later.<br/>";
-            }            
+            } 
+            echo "</div>";
         }else{
     ?>  
     
