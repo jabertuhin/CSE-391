@@ -19,17 +19,42 @@
         <p>Please, login <a href='login.php'>here</a></p>
     </div>
     <?php
-        }else if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            
         }else{
             if($_SESSION['admin'] == 1) include 'NavigateBarAdmin.php';
-            else include 'NavigateBarCont.php';                                            
+            else include 'NavigateBarCont.php';
+            
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                $title = valid($_POST['title']);
+                $content = valid($_POST['content']);
+                $class = valid($_POST['class']);
+                $subject = valid($_POST['subject']);
+                $chapter = valid($_POST['chapter']);
+                $arr = mysqli_query($conn,"select username from account_info where mail_id = '{$_SESSION['mail']}' ");
+                
+                while($res = mysqli_fetch_array($arr,MYSQLI_ASSOC)){
+                    $username = $res['username'];
+                }
+                $date = date("Y-m-d");
+                $approve = 0;
+                if($_SESSION['admin'] == 1) $approve = 1;            
+                
+                $sql = "insert into tutorial values ('$class','$subject','$chapter','$title','$content','$username','$date','$approve')";
+                if(mysqli_query($conn,$sql)){
+                    echo "<div style=\"margin-left:25%;padding:1px 16px;height:1000px;\">";
+                    echo "Successfully posted....";
+                    echo "</div>";
+                }else{
+                    header("location: post.php");
+                }
+            }else{
     ?>
         <div style="margin-left:25%;padding:1px 16px;height:1000px;">
             <h2>Post Your Tutorial: </h2>
-            <textarea rows="1" cols="90" name="title" form="likha" placeholder="Title..."></textarea>
-            <textarea rows="20" cols="90" name="content" form="likha" placeholder= "write your content here..."></textarea>
-            <form action="" method="post" name="likha">
+
+            <form action="" method="post" id="likha">
+                <textarea rows="1" cols="90" name="title" placeholder="Title..."></textarea>
+                <textarea rows="20" cols="90" name="content"  placeholder="write your content here..."></textarea>
+                <br/>
                 <?php
                     $sql_chapter = "select *from chapter";
                     $sql_class = "select *from class";
@@ -65,14 +90,15 @@
                     }
                     echo "</select>&nbsp";
                 ?>
-                <br/><br/><br/>
-                    <input type="submit" name="submit" value = "POST"/>
+                    <br/><br/><br/>
+                    <input type="submit" name="submit" value="POST" />
             </form>
         </div>
         <?php
+            }
         }
         mysqli_close($conn);
-    ?>
+        ?>
 </body>
 
 </html>
