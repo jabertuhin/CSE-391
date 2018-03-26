@@ -16,19 +16,19 @@
             include 'NavigateBar.php';
     ?>
     <div style="margin-left:25%;padding:1px 16px;height:1000px;">
-        <p>Please, login <a href = 'login.php'>here</a></p>
-    </div>            
+        <p>Please, login <a href='login.php'>here</a></p>
+    </div>
     <?php
         }else{
-            if($_SESSION['admin'] == 1) require 'NavigateBarAdmin.php';
-            else require 'NavigateBarCont.php';
-            session_destroy();
-            mysqli_close($conn);
-            header("location: index.php");
-        }
+            if($_SESSION['admin'] == 1) include 'NavigateBarAdmin.php';
+            else include 'NavigateBarCont.php';                                            
     ?>
         <div style="margin-left:25%;padding:1px 16px;height:1000px;">
-        </div>
+        </div>    
+    <?php
+        }
+        mysqli_close($conn);
+    ?>
 </body>
 
 </html>

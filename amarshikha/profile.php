@@ -13,11 +13,11 @@
         require 'connect.php';
         session_start();
         if(!isset($_SESSION['mail']) && !isset($_SESSION['pass'])){
-            require 'NavigateBarCont.php';
+            include 'NavigateBar.php';
             echo "Please, login <a href = 'login.php'>here</a>";
         }else{
-            if($_SESSION['admin'] == 1) require 'NavigateBarAdmin.php';
-            else require 'NavigateBarCont.php';
+            if($_SESSION['admin'] == 1) include 'NavigateBarAdmin.php';
+            else include 'NavigateBarCont.php';
     ?>
         <div style="margin-left:25%;padding:1px 16px;height:1000px;">
             <form>
@@ -26,16 +26,19 @@
                     <?php
                         $mail = $_SESSION['mail'];
                         $pass = $_SESSION['pass'];
-                        $sql = "select *from account_info where mail_id = '$mail' password = '$pass'";
+                        $sql = "select * from account_info where mail_id = '$mail' and password = '$pass' ";
+                        
                         $result = mysqli_query($conn,$sql);
                         $row = mysqli_num_rows($result);
-                        echo "<h1>{$row}</h1>";
+
                         while($arr = mysqli_fetch_array($result,MYSQLI_ASSOC)){
                             echo "<label>username : </label> {$arr['username']}<br/>";
+                            echo "<label>E-mail : </label> {$arr['mail_id']}<br/>";
+                            echo "<label>Job : </label> {$arr['job']}<br/>";
+                            echo "<label>Institute : </label> {$arr['institute']}<br/>";
+                            echo "<label>Contribution : </label> {$arr['contribution']}<br/>";
                         }                                                
                     ?>
-                    <label>username : </label>
-                    Name: <input type="text"><br> Email: <input type="text"><br> Date of birth: <input type="text">
                 </fieldset>
             </form>
         </div>
