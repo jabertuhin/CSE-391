@@ -28,6 +28,11 @@
                 $_SESSION['pass'] = $pass;
                 $_SESSION['admin'] = $arr['admin_check'];
                 header("location: profile.php");
+            }else{
+                require 'NavigateBar.php';
+                echo "<div style=\"margin-left:25%;padding:1px 16px;height:1000px;\">";
+                echo "<h2>Your password or mail id is wrong.<h2>";
+                echo "</div><br/><br/>";
             }                                                                        
         }else{
     ?>  
