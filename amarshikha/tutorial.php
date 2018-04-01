@@ -32,7 +32,7 @@
                     $result = mysqli_query($conn,$sql_class);
                     echo "<h3>Class</h3>"; 
                     echo "<select name = \"class\">";
-                    echo "<option>---slect class---</option>";
+                    echo "<option>---select class---</option>";
                     while($arr = mysqli_fetch_array($result,MYSQLI_ASSOC)){                    
                         echo "<option value=\"{$arr['code']}\">{$arr['class_name']}<br>";
                         //echo $arr['code']."--".$arr['class_name']."<br/>";
@@ -42,7 +42,7 @@
                     $result = mysqli_query($conn,$sql_subject);
                     echo "<h3>Subject</h3>"; 
                     echo "<select name = \"subject\">";
-                    echo "<option>---slect subject---</option>";
+                    echo "<option>---select subject---</option>";
                     while($arr = mysqli_fetch_array($result,MYSQLI_ASSOC)){                    
                         echo "<option value=\"{$arr['code']}\">{$arr['subject_name']}<br>";
                         //echo $arr['code']."--".$arr['class_name']."<br/>";
@@ -52,7 +52,7 @@
                     $result = mysqli_query($conn,$sql_chapter);
                     echo "<h3>Chapter</h3>"; 
                     echo "<select name = \"chapter\">";
-                    echo "<option>---slect chapter---</option>";
+                    echo "<option>---select chapter---</option>";
                     while($arr = mysqli_fetch_array($result,MYSQLI_ASSOC)){                    
                         echo "<option value=\"{$arr['code']}\">{$arr['chapter_name']}<br>";
                         //echo $arr['code']."--".$arr['class_name']."<br/>";

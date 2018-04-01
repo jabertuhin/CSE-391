@@ -28,12 +28,13 @@
             $subject = $_GET['subject'];
             $chapter = $_GET['chapter'];
             
-            $tutorial = "select * from tutorial where class_code = '$class' and subject_code = '$subject' and chapter_code = '$chapter' ";
+            $tutorial = "select * from tutorial where class_code = '$class' and subject_code = '$subject' and chapter_code = '$chapter'and approve = 1 ";
             $result = mysqli_query($conn,$tutorial);
             $row = mysqli_num_rows($result);
             
             if($row>0){
                 while($temp = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+//                    $temp['content'] = addslashes($temp['content']);
                     echo "<h3>{$temp['title']}</h3>";
                     echo "<p>{$temp['content']}</p>";
                     echo "<h5>created by {$temp['writer']} on {$temp['date']}</h5>";

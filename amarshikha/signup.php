@@ -22,8 +22,17 @@
                 
             $sql = "INSERT INTO account_info (username,mail_id,job,institute,password) VALUES ('$username','$mail','$job','$inst','$pass') ";
             echo "<div style=\"margin-left:25%;padding:1px 16px;height:1000px;\">";
-            if(mysqli_query($conn,$sql)){
-                echo "Your account has been created. Now you can log in.<br/>";
+            
+            $sql_mail_check = "select username from account_info where mail_id = '$mail' ";
+            $result = mysqli_query($conn,$sql_mail_check);
+            
+            if(mysqli_num_rows($result)>0){
+                echo "<h3>This mail id is already taken. Use another mail id to sign up</h3><br/>";
+                echo "<a href = \"signup.php\">Sign Up</a>";
+            }else if(mysqli_query($conn,$sql)){
+                //$sql = "INSERT INTO account_info (username,mail_id,job,institute,password) VALUES ('$username','$mail','$job','$inst','$pass') ";
+                
+                echo "<h3>Your account has been created. Now you can log in.</h3><br/>";
                 echo "<a href = \"login.php\">Log In</a>";
             }else{
                 echo "Try again later.<br/>";
