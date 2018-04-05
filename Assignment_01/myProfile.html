@@ -13,6 +13,8 @@
     function myFunction() {
         var x = document.lastModified;
         document.getElementById("modDate").innerHTML = "Page Last modified :"+x;
+		var y = window.location.pathname;
+        document.getElementById("locate").innerHTML = "Page Location :"+y;
     }
 </script>
 
@@ -30,12 +32,31 @@
             <li><a href="#FavBook">Favourite Books</a></li>
         </ul>
         <br/>
+		<h3>Favourite Quote</h3>
+		
+		<p><strong>Don Vito Corleone:</strong> I'm gonna make him an offer he can't refuse</p>
+		
         <h3 id="Edu">Educational Background</h3>
-        <p style="text-align: inherit;">
+        <!--<p style="text-align: inherit;">
             <strong>School: </strong>Faizur Rahman Idead Instutite<br/>
             <strong>College: </strong>Birsrestho Noor Mohammad Public College<br/>
             <strong>University: </strong>BRAC University<br/>
-        </p>
+        </p>-->
+		<table>
+		<tr>
+			<td><strong>School: </strong></td>
+			<td>Faizur Rahman Idead Instutite</td>
+		</tr>
+		<tr>
+			<td><strong>College: </strong></td>
+			<td>Birsrestho Noor Mohammad Public College</td>
+		</tr>
+		<tr>
+			<td><strong>University: </strong></td>
+			<td>BRAC University</td>
+		</tr>
+		</table>
+		
         <h3 id="Hobbies">Hobbies</h3>
         <p style="text-align: inherit;">
             I love to read and write. It's been more than 7 years, I am writing in several platforms. Currently I use my wordpress site to publish my write ups.<br/>
@@ -64,7 +85,8 @@
             <li>Ongkar - Ahmed Chofa</li>
         </ul>
     </div>
-    <span id="modDate"></span>
+    <span id="modDate"></span><br/>
+	<span id="locate"></span>
 </body>
 
 </html>
